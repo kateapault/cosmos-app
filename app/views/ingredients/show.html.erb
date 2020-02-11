@@ -1,0 +1,10 @@
+<h1><%= @ingredient.name %></h1>
+
+Type: <%= @ingredient.category %>
+<br>
+<br>
+<%= button_to "Edit Ingredient", edit_ingredient_path, method: "get" %>
+<%= form_tag ingredient_path(@ingredient), method: "delete" do %>
+<%= submit_tag "Delete Ingredient" %>
+<% end %>
+<%= link_to "Back To Ingredient List", ingredients_path %>

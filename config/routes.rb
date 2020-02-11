@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   patch '/cocktails/:id', to: 'cocktails#update'
   delete '/cocktails/:id', to: 'cocktails#destroy'
 
+  get '/ingredients', to: 'ingredients#index'
+  get '/ingredients/new', to: 'ingredients#new', as: 'new_ingredient'
+  post '/ingredients', to: 'ingredients#create'
+  get '/ingredients/:id', to: 'ingredients#show', as: 'ingredient'
+  get '/ingredients/:id/edit', to: 'ingredients#edit', as: 'edit_ingredient'
+  patch '/ingredients/:id', to: 'ingredients#update'
+  delete '/ingredients/:id', to: 'ingredients#destroy'
+
   get "/signup" => "users#new"
   post "/signup" => "users#new"
   post "/users" => "users#create"
