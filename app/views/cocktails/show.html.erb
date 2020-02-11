@@ -1,6 +1,5 @@
 <h1><%= @cocktail.name %></h1>
-<% user = User.find(@cocktail.user_id) %>
-<em>Submitted by <%=link_to user.name, user_path(user)%></em>
+<em>Submitted by <%=link_to @profile.name, user_path(@profile)%></em>
 <br>
 Ingredients used:
 <% @cocktail.cis.each do |ci| %>
@@ -11,6 +10,13 @@ Ingredients used:
 
 <h3>Instructions:</h3>
 <%# @cocktail.instructions %>
+<% if !(@user.id == @cocktail.user_id)%>
+    <%= form_for @uc do |f| %>
+    <%= f.number_field :rating %>
+    <input type="hidden" name="uc[cocktail_id]" value="<%=@cocktail.id%>"/>
+    <%= f.submit %>
+    <% end %>
+<% end %>
 
 
 <%= button_to "Edit Cocktail", edit_cocktail_path(@cocktail), method: "get" %> 

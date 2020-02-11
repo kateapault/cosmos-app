@@ -5,6 +5,9 @@ class CocktailsController < ApplicationController
 
   def show
     @cocktail = Cocktail.find(params[:id])
+    @profile = User.find(@cocktail.user_id)
+    @user = current_user
+    @uc = Uc.new
   end
 
   def new

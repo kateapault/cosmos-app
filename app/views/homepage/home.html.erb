@@ -1,6 +1,11 @@
 <%# <h1>Homepage#home</h1>
 <p>Find me in app/views/homepage/home.html.erb</p> %>
 
-<%= button_to "Login", "/login"%>
+<%= button_to "Login", "/login", method: "get"%>
 
 <%= button_to "Sign Up", "/signup"%>
+
+<%= form_tag(ucs_path, method: "get") do %>
+  Rating <%= number_field_tag (:rating) %>
+  <%= submit_tag 'Search' %>
+<% end %>
