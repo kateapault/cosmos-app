@@ -15,11 +15,14 @@ Rails.application.routes.draw do
   post "/users" => "users#create"
 
   get "/editprofile" => "users#edit"
-  post "/users/:id" => "users#update"
+  patch "/users/:id" => "users#update"
+
+  get "/delete" => "users#destroy"
+  post "/" => "users#destroy"
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
   post '/logout', to: 'sessions#new'
 
   get "/users/:id" => 'users#show', as: "user" #need to refactor for security
