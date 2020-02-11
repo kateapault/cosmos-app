@@ -9,11 +9,16 @@ class CocktailsController < ApplicationController
 
   def new
     @cocktail = Cocktail.new
+    @cis = []
   end
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
+    cis = params["cis"].select { |ci| ci["amount"].empty? == false }
     if @cocktail.save
+      cis.each do |ci|
+        Ci.create(cocktail_id:@cocktail.id,ingredient_id:ci["ingredient_id"],amount:ci["amount"])
+      end
       redirect_to cocktail_path(@cocktail)
     else
       flash[:alert] = @cocktail.errors.messages
@@ -23,11 +28,14 @@ class CocktailsController < ApplicationController
 
   def edit
     @cocktail = Cocktail.find(params[:id])
+    @cis = Ci.all.select { |ci| ci.cocktail_id == @cocktail.id}
   end
 
   def update
     @cocktail = Cocktail.find(params[:id])
+
     if @cocktail.update(cocktail_params)
+
       redirect_to cocktail_path(@cocktail)
     else
       flash[:alert] = @cocktail.errors.messages
@@ -44,6 +52,10 @@ class CocktailsController < ApplicationController
 
   def cocktail_params
     params.require(:cocktail).permit(:name,:instructions,:ice,:user_id)
+  end
+
+  def ci_params
+    params.require(:ci).permit(:cocktail_id,:ingredient_id,:amount)
   end
 
 end

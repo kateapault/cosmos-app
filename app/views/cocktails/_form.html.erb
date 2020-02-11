@@ -2,9 +2,21 @@
     Name: <%= f.text_field :name %>
 
     <br>
-    Ingredients: 
-        coming soon
     <br>
     User: <%= f.number_field :user_id %>
-    <%= f.submit %>
+    <br>
+    <br>
+    Ingredients:
+    <table>
+    <% Ingredient.all.each do |i| %>
+        <% if ci = @cis.find { |ci| ci.ingredient_id == i.id } %>
+            <tr><td><%=i.name%></td><td><%= text_field_tag 'cis[][amount]', ci.amount%> fl oz <%= hidden_field_tag 'cis[][ingredient_id]', i.id %></td></tr>
+        <% else %>
+            <tr><td><%=i.name%></td><td><%= text_field_tag 'cis[][amount]' %> fl oz <%= hidden_field_tag 'cis[][ingredient_id]', i.id %></td></tr>
+        <% end %>
+    <% end %>
+    </table>
+
+    <br>
+    <%= f.submit  %>
 <% end %>

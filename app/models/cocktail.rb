@@ -4,4 +4,5 @@ class Cocktail < ApplicationRecord
     has_many :users, through: :ucs
     has_many :cis
     has_many :ingredients, through: :cis
+
 end
