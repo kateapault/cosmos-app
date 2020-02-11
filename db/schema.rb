@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_02_10_194839) do
 
   create_table "cis", force: :cascade do |t|
+    t.integer "amount"
     t.integer "cocktail_id"
     t.integer "ingredient_id"
     t.datetime "created_at", precision: 6, null: false
@@ -24,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_02_10_194839) do
     t.text "instructions"
     t.boolean "ice"
     t.integer "user_id"
-    t.integer "cocktail_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

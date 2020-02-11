@@ -5,7 +5,6 @@ class CreateCocktails < ActiveRecord::Migration[6.0]
       t.text :instructions
       t.boolean :ice
       t.integer :user_id
-      t.integer :cocktail_id
 
       t.timestamps
     end

@@ -18,8 +18,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @current_user = current_user
+    @profile = User.find(params[:id])
   end
+
+
 
   private
 
