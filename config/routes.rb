@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'ingredients/index'
-  get 'ingredients/show'
-  get 'ingredients/new'
-  get 'ingredients/edit'
   root "homepage#home"
   
   get '/cocktails', to: 'cocktails#index'
