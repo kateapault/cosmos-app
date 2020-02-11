@@ -8,5 +8,6 @@
 <h1><%= @profile.name %></h1>
 
 <% if @current_user == @profile%>
+<%= button_to "Edit", "/editprofile"%>
 <%= button_to "Logout", "/logout"%>
 <% end %>
