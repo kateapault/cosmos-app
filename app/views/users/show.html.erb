@@ -6,7 +6,10 @@
 <% end %>
 
 <h1><%= @profile.name %></h1>
+<h1><%= @profile.bio %></h1>
 
-<% if @current_user == @profile%>
-<%= button_to "Logout", "/logout"%>
+<% if @user == @profile%>
+<%= link_to "Edit", "/editprofile"%>
+<%= link_to "Logout", "/logout"%>
+<%= link_to "Delete Profile", "/delete", data: {confirm: "Are you sure you want to delete your profile FOREVER?" }%>
 <% end %>
