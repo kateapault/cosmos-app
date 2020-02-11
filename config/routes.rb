@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :ucs
+
   root "homepage#home"
   
   get '/cocktails', to: 'cocktails#index'
