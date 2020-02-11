@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   post '/logout', to: 'sessions#new'
 
-  get "/users/:id" => 'users#show' #need to refactor for security
+  get "/users/:id" => 'users#show', as: "user" #need to refactor for security
 
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
