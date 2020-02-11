@@ -1,0 +1,16 @@
+<h1><%= @cocktail.name %></h1>
+<% user = User.find(@cocktail.user_id) %>
+<em>Submitted by <%=link_to user.name, user_path(user)%></em>
+<br>
+Ingredients used: none yet!
+
+
+<h3>Instructions:</h3>
+<%# @cocktail.instructions %>
+
+
+<%= button_to "Edit Cocktail", edit_cocktail_path(@cocktail), method: "get" %> 
+<%= form_tag cocktail_path(@cocktail), method: "delete" do %>
+<%= submit_tag "Delete Cocktail" %>
+<% end %>
+<%= link_to "Back to Cocktail List", cocktails_path %>
