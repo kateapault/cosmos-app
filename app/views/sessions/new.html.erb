@@ -1,0 +1,11 @@
+<%# <h1>Sessions#new</h1>
+<p>Find me in app/views/sessions/new.html.erb</p> %>
+<% if flash[:message] %>
+    <%= flash[:message] %>
+<% end %>
+
+<%=form_tag "/login" do%>
+    Username: <%=text_field_tag "name"%><br>
+    Password: <%=text_field_tag "password"%><br>
+    <%=submit_tag "Login"%>
+<%end%>
