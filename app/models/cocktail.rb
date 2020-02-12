@@ -5,4 +5,5 @@ class Cocktail < ApplicationRecord
     has_many :cis
     has_many :ingredients, through: :cis
 
+    validates :name, presence: true
 end

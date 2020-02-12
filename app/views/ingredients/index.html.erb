@@ -2,5 +2,5 @@
 <%= button_to "Add New Ingredient", new_ingredient_path, method: "get" %>
 
 <% @ingredients.each do |ingredient| %>
-    <%= link_to ingredient.name, ingredient_path(ingredient) %>
+    <div><%= link_to ingredient.name, ingredient_path(ingredient) %></div>
 <% end %>

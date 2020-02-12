@@ -13,9 +13,11 @@ class CocktailsController < ApplicationController
   def new
     @cocktail = Cocktail.new
     @cis = []
+    @user = current_user
   end
 
   def create
+    @user = current_user
     @cocktail = Cocktail.new(cocktail_params)
     cis = params["cis"].select { |ci| ci["amount"].empty? == false }
     if @cocktail.save

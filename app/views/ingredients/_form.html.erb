@@ -1,5 +1,9 @@
+<% if flash[:message]%>
+    <%= flash[:message]%>
+<% end %>
+
 <%= form_for @ingredient do |f| %>
     Name: <%= f.text_field :name %>
-    Type: <%= f.text_field :category %>
+    Type: <%= f.collection_select :category, @categories, :to_s, :to_s, include_blank: false %>
     <%= f.submit %>
 <% end %>
