@@ -19,10 +19,10 @@ class CocktailsController < ApplicationController
   def create
     @user = current_user
     @cocktail = Cocktail.new(cocktail_params)
-    cis = params["cis"].select { |ci| ci["amount"].empty? == false }
+    cis = params["cis"]
     if @cocktail.save
       cis.each do |ci|
-        Ci.create(cocktail_id:@cocktail.id,ingredient_id:ci["ingredient_id"],amount:ci["amount"])
+        @cocktail.ci_check(ci)
       end
       redirect_to cocktail_path(@cocktail)
     else
@@ -38,9 +38,11 @@ class CocktailsController < ApplicationController
 
   def update
     @cocktail = Cocktail.find(params[:id])
-
+    cis = params["cis"]
     if @cocktail.update(cocktail_params)
-
+      cis.each do |ci|
+        @cocktail.ci_check(ci)
+      end
       redirect_to cocktail_path(@cocktail)
     else
       flash[:alert] = @cocktail.errors.messages
@@ -57,10 +59,6 @@ class CocktailsController < ApplicationController
 
   def cocktail_params
     params.require(:cocktail).permit(:name,:instructions,:ice,:user_id)
-  end
-
-  def ci_params
-    params.require(:ci).permit(:cocktail_id,:ingredient_id,:amount)
   end
 
 end
