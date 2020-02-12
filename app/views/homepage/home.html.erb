@@ -6,6 +6,6 @@
 <%= button_to "Sign Up", "/signup"%>
 
 <%= form_tag(ucs_path, method: "get") do %>
-  Rating <%= number_field_tag (:rating) %>
+  Search by Rating <%= number_field_tag (:rating) %>
   <%= submit_tag 'Search' %>
 <% end %>

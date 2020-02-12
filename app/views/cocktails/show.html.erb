@@ -12,9 +12,9 @@ Ingredients used:
 <%# @cocktail.instructions %>
 <% if !(@user.id == @cocktail.user_id)%>
     <%= form_for @uc do |f| %>
-    <%= f.number_field :rating %>
+    <%= f.collection_select :rating, @rating, :to_i, :to_i %>
     <input type="hidden" name="uc[cocktail_id]" value="<%=@cocktail.id%>"/>
-    <%= f.submit %>
+    <%= f.submit "Rate Drink!" %>
     <% end %>
 <% end %>
 
