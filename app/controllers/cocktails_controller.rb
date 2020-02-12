@@ -1,4 +1,6 @@
 class CocktailsController < ApplicationController
+  before_action :authorized, except: [:index, :show]
+
   def index
     @cocktails = Cocktail.all
   end
@@ -8,6 +10,7 @@ class CocktailsController < ApplicationController
     @profile = User.find(@cocktail.user_id)
     @user = current_user
     @uc = Uc.new
+    @rating = [1, 2, 3, 4, 5]
   end
 
   def new
