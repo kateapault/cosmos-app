@@ -7,6 +7,17 @@ class Cocktail < ApplicationRecord
 
     validates :name, presence: true
     
+    # def search_through_ingredients(search)
+    #     if search
+    #         # maybe while search.size > 0 pop the ing_id and select Cis?
+    #         # then repeat & whittle down?
+
+    #         Ci.all.select { |ci| search.include? ci.ingredient_id }
+    #     else
+    #         Cocktail.all
+    #     end
+    # end
+
     def ci_check(params)
         ing_id = params["ingredient_id"].to_i
         input_amount = params["amount"].to_i
