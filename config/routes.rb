@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/cis/search', to: 'cis#search'
+  get '/cis/index', to: 'cis#index', as: 'filtered_path'
   resources :ucs
 
   root "homepage#home"

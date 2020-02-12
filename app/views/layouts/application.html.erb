@@ -10,6 +10,8 @@
   </head>
 
   <body>
+    LOGGED IN: <%= !session[:user_id].nil? %>
+    <hr>
     <%= yield %>
   </body>
 </html>
