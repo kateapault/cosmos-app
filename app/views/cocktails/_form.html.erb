@@ -10,10 +10,12 @@
     <table>
     <% Ingredient.all.each do |i| %>
         <% if ci = @cis.find { |ci| ci.ingredient_id == i.id } %>
-            <tr><td><%=i.name%></td><td><%= text_field_tag 'cis[][amount]', ci.amount%> fl oz <%= hidden_field_tag 'cis[][ingredient_id]', i.id %></td></tr>
+            <% default_val = ci.amount %>
         <% else %>
-            <tr><td><%=i.name%></td><td><%= text_field_tag 'cis[][amount]' %> fl oz <%= hidden_field_tag 'cis[][ingredient_id]', i.id %></td></tr>
+            <% default_val = nil %>
         <% end %>
+
+        <tr><td><%=i.name%></td><td><%= text_field_tag 'cis[][amount]', default_val%> fl oz <%= hidden_field_tag 'cis[][ingredient_id]', i.id %></td></tr>   
     <% end %>
     </table>
 
