@@ -1,6 +1,14 @@
 <h2>Cocktails</h2>
 <br>
-<ul>
-<% @cocktails.each do |cocktail| %>
-    <li><%= cocktail.name %> | ingredients: <%= cocktail.ingredients.map { |i| i.name } %></li>
+<table>
+<% @cocktails.each_with_index do |cocktail,i| %>
+    <% i = i+1 %>
+    <% if i % 5 == 1 %>
+        <tr><td><%= link_to cocktail.name, cocktail_path(cocktail), class:"cocktail" %></a?</td>
+    <% elsif i % 5 == 0 %>
+        <td><%= link_to cocktail.name, cocktail_path(cocktail),class:"cocktail" %></td></tr>
+    <%else%>
+        <td><%= link_to cocktail.name, cocktail_path(cocktail),class:"cocktail" %></td>
+    <%end%>
 <% end %>
+</table>
