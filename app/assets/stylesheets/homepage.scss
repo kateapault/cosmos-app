@@ -41,3 +41,18 @@ a.button {
     text-decoration: none;
 
 }
+
+table.name_amount {
+    width: 20%;
+}
+
+table.name_amount tr :nth-child(1) {
+    text-align: right;
+}
+table.name_amount tr :nth-child(2) {
+    text-align: left;
+}
+
+p {
+    text-align: center;
+}

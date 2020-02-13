@@ -1,12 +1,12 @@
 <h1><%= @cocktail.name %></h1>
 <em>Submitted by <%=link_to @profile.name, user_path(@profile)%></em>
 <br>
-Ingredients used:
+<p>Ingredients used:</p>
+<table class="name_amount">
 <% @cocktail.cis.each do |ci| %>
-    <br>
-    <%= ci.ingredient.name %> | <%= ci.amount %> fl oz
+    <tr><td><%= ci.amount %> fl oz</td><td><%= ci.ingredient.name %> </td></tr>
 <% end %>
-
+</table>
 
 <h3>Instructions:</h3>
 <%# @cocktail.instructions %>
@@ -21,8 +21,6 @@ Ingredients used:
 <% end %>
 
 
-<%= button_to "Edit Cocktail", edit_cocktail_path(@cocktail), method: "get" %> 
-<%= form_tag cocktail_path(@cocktail), method: "delete" do %>
-<%= submit_tag "Delete Cocktail" %>
-<% end %>
+<%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class:"button" %> 
+<%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: "delete", class:"button" %>
 <%= link_to "Back to Cocktail List", cocktails_path, class:"button" %>
