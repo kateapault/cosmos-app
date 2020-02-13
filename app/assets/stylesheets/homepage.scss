@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body {
+    background-color: black;
+}
+
 body.home {
     background-image: url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1357&q=80);
     background-size: 100%, 100%;
@@ -20,6 +24,7 @@ h1 {
     text-align: center;
     background-image: url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1357&q=80);
     color: silver;
+
 }
 
 h1.home {
@@ -43,16 +48,44 @@ h2 {
 
 }
 
+table.show {
+    width: 100%;
+    height: 100%;
 
-table.name_amount {
-    width: 20%;
 }
 
-table.name_amount tr :nth-child(1) {
-    text-align: right;
+td.recipecard {
+    width: 30%;
+    border-radius: 15px;
+    border: 3px solid silver;
+    color: silver;
 }
-table.name_amount tr :nth-child(2) {
-    text-align: left;
+
+td.title {
+    vertical-align: top;
+    padding-top: 0;
+}
+
+td ul {
+    background-color: black;
+}
+
+em {
+    color: silver;
+}
+
+em a {
+    color: silver;
+}
+
+p.links {
+    
+    align-content: center;
+}
+
+body.form {
+    color: silver;
+    align-content: center;
 }
 
 //////////////////////////////////////////////////////
@@ -122,3 +155,7 @@ a.cocktail {
     font-size: large;
 }
 
+p {
+   width: 100%;
+   text-align: center; 
+}
