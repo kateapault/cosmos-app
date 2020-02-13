@@ -53,6 +53,70 @@ table.name_amount tr :nth-child(2) {
     text-align: left;
 }
 
-p {
-    text-align: center;
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+///////////// ADVANCED SEARCH FORM ///////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+input[type=radio] {
+    display: none;
 }
+
+input[type=radio] + label {
+    background: black;
+    color: white;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+input[type=radio]:checked + label {
+    background:url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1057&q=80);
+    color: white;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label {
+    background: black;
+    color: white;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+input[type=checkbox]:checked + label {
+    background-image:url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1057&q=80);
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+table {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: center;
+}
+
+td {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+
+}
+
+a.cocktail {
+    background: lightblue;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 8px;
+    text-decoration: none;
+    color: royalblue;
+    font-size: large;
+}
+
