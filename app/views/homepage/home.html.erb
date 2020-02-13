@@ -1,6 +1,8 @@
 <%# <h1>Homepage#home</h1>
 <p>Find me in app/views/homepage/home.html.erb</p> %>
-<h1>Cosmos</h1>
+<body class="home">
+<div class="home">
+<h1 class="home">Cosmos</h1>
 <h2>Your premier cocktail resource from this galaxy to the next</h2>
 
 <h3><%= form_tag(cocktails_path, method: "get", autocomplete: "off") do %>
@@ -13,5 +15,6 @@
 <%= form_tag(ucs_path, method: "get") do %>
   Search by Rating <%= select_tag :rating, options_from_collection_for_select(@rating, "to_i", "to_i") %>
   <%= submit_tag 'Search' %>
-<% end %>
-</h3>
+<% end %></h3>
+</div>
+</body>

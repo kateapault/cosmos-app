@@ -9,7 +9,7 @@
 <h1><%= @profile.bio %></h1>
 
 <% if @user == @profile%>
-<%= link_to "Edit", "/editprofile"%>
-<%= link_to "Logout", "/logout"%>
-<%= link_to "Delete Profile", "/delete", data: {confirm: "Are you sure you want to delete your profile FOREVER?" }%>
+<%= link_to "Edit", "/editprofile", class:"button"%>
+<%= link_to "Logout", "/logout", class:"button"%>
+<%= link_to "Delete Profile", "/delete", data: {confirm: "Are you sure you want to delete your profile FOREVER?" }, class:"button"%>
 <% end %>

@@ -7,4 +7,4 @@ Type: <%= @ingredient.category %>
 <%= form_tag ingredient_path(@ingredient), method: "delete" do %>
 <%= submit_tag "Delete Ingredient" %>
 <% end %>
-<%= link_to "Back To Ingredient List", ingredients_path %>
+<%= link_to "Back To Ingredient List", ingredients_path, class:"button" %>
