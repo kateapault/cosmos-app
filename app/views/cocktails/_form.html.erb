@@ -1,3 +1,4 @@
+<body class="form">
 <%= form_for @cocktail do |f| %>
     <%= f.hidden_field :user_id, value:session[:user_id] %>
     Name: <%= f.text_field :name %>
@@ -21,3 +22,4 @@
     <br>
     <%= f.submit  %>
 <% end %>
+</body>

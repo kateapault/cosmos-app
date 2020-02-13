@@ -1,3 +1,4 @@
+<body class="form">
 <% if flash[:message]%>
     <%= flash[:message]%>
 <% end %>
@@ -7,3 +8,4 @@
     Type: <%= f.collection_select :category, @categories, :to_s, :to_s, include_blank: false %>
     <%= f.submit %>
 <% end %>
+</body>
