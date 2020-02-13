@@ -7,7 +7,7 @@
     <br>
     <br>
     Ingredients:
-    <table>
+    <table class="name_amount">
     <% Ingredient.all.each do |i| %>
         <% if ci = @cis.find { |ci| ci.ingredient_id == i.id } %>
             <% default_val = ci.amount %>

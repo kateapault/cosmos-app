@@ -1,15 +1,19 @@
 <h1><%= @cocktail.name %></h1>
 <em>Submitted by <%=link_to @profile.name, user_path(@profile)%></em>
 <br>
-Ingredients used:
+<p>Ingredients used:</p>
+<table class="name_amount">
 <% @cocktail.cis.each do |ci| %>
-    <br>
-    <%= ci.ingredient.name %> | <%= ci.amount %> fl oz
+    <tr><td><%= ci.amount %> fl oz</td><td><%= ci.ingredient.name %> </td></tr>
 <% end %>
+<<<<<<< HEAD
 <br>
 Average Rating:
 <%= @cocktail.ucs.average(:rating) %>
 
+=======
+</table>
+>>>>>>> 3d9327a355d78eb2b94a0b7b1e0ba0173a48c492
 
 <h2>Instructions:</h2>
 <h3><%= @cocktail.instructions %></h3>
@@ -25,8 +29,6 @@ Average Rating:
 <% end %>
 
 
-<%= button_to "Edit Cocktail", edit_cocktail_path(@cocktail), method: "get" %> 
-<%= form_tag cocktail_path(@cocktail), method: "delete" do %>
-<%= submit_tag "Delete Cocktail" %>
-<% end %>
+<%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class:"button" %> 
+<%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: "delete", class:"button" %>
 <%= link_to "Back to Cocktail List", cocktails_path, class:"button" %>
