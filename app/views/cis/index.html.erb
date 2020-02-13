@@ -1,6 +1,7 @@
 <h2>Cocktails</h2>
 <br>
 <ul>
-<% @cocktails.each do |cocktail| %>
-    <li><%= cocktail.name %> | ingredients: <%= cocktail.ingredients.map { |i| i.name } %></li>
-<% end %>
+
+    <% @cocktails.each do |cocktail| %>
+        <li><%= cocktail.name %> | ingredients: <%= cocktail.ingredients.map { |i| i.name } %></li>
+    <% end %>

@@ -1,10 +1,17 @@
-<h1>All Cocktails</h1>
-<%= link_to "Create New Cocktail", new_cocktail_path%>
-<br>
-<%= form_tag %>
-<br>
-<ul>
-<% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+<% if params[:name] %>
+
+    <% @cocktail.each do |cocktail| %>
+        <%= cocktail.name %>
+    <% end %>
+<% else %>
+    <h1>All Cocktails</h1>
+    <%= link_to "Create New Cocktail", new_cocktail_path%>
+    <br>
+    <%= form_tag %>
+    <br>
+    <ul>
+    <% @cocktails.each do |cocktail| %>
+        <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+    <% end %>
+    </ul>
 <% end %>
-</ul>

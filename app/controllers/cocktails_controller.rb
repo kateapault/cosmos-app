@@ -2,7 +2,12 @@ class CocktailsController < ApplicationController
   before_action :authorized, except: [:index, :show]
 
   def index
-    @cocktails = Cocktail.all
+  @cocktails = Cocktail.all
+    if params[:name]
+      @cocktail = Cocktail.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @cocktail = Cocktail.all
+    end
   end
 
   def show

@@ -14,8 +14,9 @@
   <nav>
     <ul>
       <li style="float:left"><a href="/">Home</a></li>
-      <li style="float:left"><a href="/ingredients">Ingredients</a></li>
+      <li style="float:left"><a href="/cocktail-search">Advanced Search</a></li>
       <li style="float:left"><a href="/cocktails">Cocktails</a></li>
+      <li style="float:left"><a href="/ingredients">Ingredients</a></li>
       <% if !session[:user_id].nil? %>
         <li style="float:right"><a href="/logout">Logout</a></li>
       <% else %>
@@ -24,6 +25,7 @@
       <% end %>
     </ul>
   </nav>
+  
     <%= yield %>
   </body>
 </html>
