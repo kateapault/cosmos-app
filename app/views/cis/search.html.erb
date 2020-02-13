@@ -1,0 +1,29 @@
+<%= form_tag(results_path,method:'get') %>
+    <p>Show me cocktails that... </p>
+    <%= radio_button_tag "search_type", "include" %> Include
+    <%= radio_button_tag "search_type", "exclude" %> Exclude
+    <%= radio_button_tag "search_type", "only" %> Use Only
+    <br>
+    ... these ingredients:
+    <br>
+    <br>
+    LIQUORS
+    <% @liquors.each do |i| %>
+        <br>
+        <%= check_box_tag "ingredients[]",i.name %> <%=i.name%>
+    <% end %>
+    <br>
+    MIXERS
+    <% @mixers.each do |i| %>
+        <br>
+        <%= check_box_tag "ingredients[]",i.name %> <%=i.name%>
+    <% end %>
+    <br>
+    GARNISHES
+    <% @garnishes.each do |i| %>
+        <br>
+        <%= check_box_tag "ingredients[]",i.name %> <%=i.name%>
+    <% end %>
+    <br>
+  
+    <%= submit_tag "Search Cocktails" %>

@@ -7,6 +7,10 @@ class Cocktail < ApplicationRecord
 
     validates :name, presence: true
 
+    def ingredients_names
+        self.ingredients.map { |i| i.name }
+    end
+
     def ci_check(params)
         ing_id = params["ingredient_id"].to_i
         input_amount = params["amount"].to_i

@@ -1,2 +1,6 @@
-<h1>Cis#index</h1>
-<p>Find me in app/views/cis/index.html.erb</p>
+<h2>Cocktails</h2>
+<br>
+<ul>
+<% @cocktails.each do |cocktail| %>
+    <li><%= cocktail.name %> | ingredients: <%= cocktail.ingredients.map { |i| i.name } %></li>
+<% end %>
