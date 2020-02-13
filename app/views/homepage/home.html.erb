@@ -3,12 +3,15 @@
 <h1>Cosmos</h1>
 <h2>Your premier cocktail resource from this galaxy to the next</h2>
 
-<%= form_tag(cocktails_path, method: "get") do %>
+<h3><%= form_tag(cocktails_path, method: "get", autocomplete: "off") do %>
   Search by Name <%= text_field_tag :name %>
   <%= submit_tag 'Search' %>
 <% end %>
+</h3>
 
-<h3><%= form_tag(ucs_path, method: "get") do %>
+<h3>
+<%= form_tag(ucs_path, method: "get") do %>
   Search by Rating <%= select_tag :rating, options_from_collection_for_select(@rating, "to_i", "to_i") %>
   <%= submit_tag 'Search' %>
-<% end %></h3>
+<% end %>
+</h3>

@@ -5,9 +5,11 @@
 <% end %>
 
 
+<h3>
 <%= form_for @user do |f| %>
     Username: <%= f.text_field :name %><br>
     Password: <%= f.text_field :password %><br>
     Confirm Password: <%= f.text_field :password_confirmation %><br>
     <%= f.submit "Create User" %>
 <% end %>
+<h3>

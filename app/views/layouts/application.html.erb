@@ -19,6 +19,7 @@
       <li style="float:left"><a href="/ingredients">Ingredients</a></li>
       <% if !session[:user_id].nil? %>
         <li style="float:right"><a href="/logout">Logout</a></li>
+        <li style="float:right"><a href="/users/<%= session[:user_id] %>">My Profile</a></li>
       <% else %>
         <li style="float:right"><a href="/signup">Signup</a></li>
         <li style="float:right"><a href="/login">Login</a></li>

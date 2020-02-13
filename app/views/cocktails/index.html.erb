@@ -1,7 +1,7 @@
 <% if params[:name] %>
 
     <% @cocktail.each do |cocktail| %>
-        <%= cocktail.name %>
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
     <% end %>
 <% else %>
     <h1>All Cocktails</h1>

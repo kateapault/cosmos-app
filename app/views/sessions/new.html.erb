@@ -4,8 +4,11 @@
     <%= flash[:message] %>
 <% end %>
 
+
+<h3>
 <%=form_tag "/login" do%>
     Username: <%=text_field_tag "name"%><br>
     Password: <%=text_field_tag "password"%><br>
     <%=submit_tag "Login"%>
 <%end%>
+</h3>
