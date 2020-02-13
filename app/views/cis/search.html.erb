@@ -1,30 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Cocktail Search</title>
+    </head>
+
+    <body>
+    <div class="space">
 <%= form_tag(results_path,method:'get') %>
     <p>Show me cocktails that... </p>
-    <%= radio_button_tag "search_type", "include" %> Include
-    <%= radio_button_tag "search_type", "exclude" %> Exclude
-    <%= radio_button_tag "search_type", "only" %> Use Only
+        <input type="radio" name="search_type", value="include", id="include"><label for="include">Include</label>
+
+        <input type="radio" name="search_type", value="exclude", id="exclude"><label for="exclude">Exclude</label>
+
+        <input type="radio" name="search_type", value="only", id="use only"><label for="use only">Use Only</label>
+
     <br>
-    ... these ingredients:
+    <p>... these ingredients:</p>
     <br>
-    <br>
-    LIQUORS
+    <p>LIQUORS</p>
     <% @liquors.each do |i| %>
-        <br>
-        <%= check_box_tag "ingredients[]",i.name %> <%=i.name%>
+        <p><input type="checkbox" name="ingredients[]" value=<%=i.name%> id=<%=i.name%> ><label for=<%=i.name%>> <%=i.name%></label></p>
+
     <% end %>
     <br>
-    MIXERS
+    <p>MIXERS</p>
     <% @mixers.each do |i| %>
+        <input type="checkbox" name="ingredients[]" value=<%=i.name%> id=<%=i.name%> ><label for=<%=i.name%>> <%=i.name%></label>
         <br>
-        <%= check_box_tag "ingredients[]",i.name %> <%=i.name%>
     <% end %>
     <br>
-    GARNISHES
+    <p>GARNISHES</p>
     <% @garnishes.each do |i| %>
+        <input type="checkbox" name="ingredients[]" value=<%=i.name%> id=<%=i.name%> ><label for=<%=i.name%>> <%=i.name%></label>
         <br>
-        <%= check_box_tag "ingredients[]",i.name %> <%=i.name%>
     <% end %>
-    <br>
-  
+
+
     <%= submit_tag "Search Cocktails" %>
-<br>
+    </div>
+    </body>
+</html>

@@ -16,17 +16,18 @@ class CisController < ApplicationController
 
   def index
     @ingredients = params[:ingredients]
+    puts "INGREDIENTS: #{@ingredients}"
+    puts "SEARCH TYPE: #{params[:search_type]}"
     not_empty_cocktails = Cocktail.all.select { |c| c.ingredients.size > 0 }
     
     case params[:search_type]
-      when "include"
-        @cocktails = not_empty_cocktails.find_all { |c| (@ingredients - c.ingredients_names).empty? }
-      when "only"
-        @cocktails = not_empty_cocktails.find_all { |c| (c.ingredients_names - @ingredients).empty? }
-      when "exclude"
-        @cocktails = not_empty_cocktails.find_all { |c| (c.ingredients_names - @ingredients).size == c.ingredients_names.size }
+    when "include"
+      @cocktails = not_empty_cocktails.find_all { |c| (@ingredients - c.ingredients_names).size < @ingredients.size }
+    when "only"
+      @cocktails = not_empty_cocktails.find_all { |c| (c.ingredients_names - @ingredients).empty? }
+    when "exclude"
+      @cocktails = not_empty_cocktails.find_all { |c| (c.ingredients_names - @ingredients).size == c.ingredients_names.size }
     end
 
-      puts @ingredients 
   end
 end
