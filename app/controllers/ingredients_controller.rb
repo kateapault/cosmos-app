@@ -1,4 +1,6 @@
 class IngredientsController < ApplicationController
+  before_action :authorized, except: [:index, :show]
+  
   def index
     @ingredients = Ingredient.all
   end
