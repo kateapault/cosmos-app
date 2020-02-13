@@ -6,14 +6,12 @@
 <% @cocktail.cis.each do |ci| %>
     <tr><td><%= ci.amount %> fl oz</td><td><%= ci.ingredient.name %> </td></tr>
 <% end %>
-<<<<<<< HEAD
 <br>
+</table>
 Average Rating:
 <%= @cocktail.ucs.average(:rating) %>
 
-=======
-</table>
->>>>>>> 3d9327a355d78eb2b94a0b7b1e0ba0173a48c492
+
 
 <h2>Instructions:</h2>
 <h3><%= @cocktail.instructions %></h3>
