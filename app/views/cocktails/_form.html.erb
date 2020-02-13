@@ -3,6 +3,9 @@
     Name: <%= f.text_field :name %>
     <br>
     <br>
+    Instructions: <%= f.text_area :instructions %>
+    <br>
+    <br>
     Ingredients:
     <table>
     <% Ingredient.all.each do |i| %>

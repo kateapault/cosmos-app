@@ -6,10 +6,14 @@ Ingredients used:
     <br>
     <%= ci.ingredient.name %> | <%= ci.amount %> fl oz
 <% end %>
+<br>
+Average Rating:
+<%= @cocktail.ucs.average(:rating) %>
 
 
-<h3>Instructions:</h3>
-<%# @cocktail.instructions %>
+<h2>Instructions:</h2>
+<h3><%= @cocktail.instructions %></h3>
+<br>
 <% if !session[:user_id].nil? %>
     <% if !(@user.id == @cocktail.user_id)%>
         <%= form_for @uc do |f| %>
