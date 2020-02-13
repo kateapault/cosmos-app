@@ -1,5 +1,6 @@
 class CisController < ApplicationController
   def search
+    @rating = [1, 2, 3, 4, 5]
     @liquors = Ingredient.all.select { |i| i.category == "Liquor" }
     @mixers = Ingredient.all.select { |i| i.category == "Mixer" }
     @garnishes = Ingredient.all.select { |i| i.category == "Garnish" }
@@ -7,6 +8,7 @@ class CisController < ApplicationController
   end
 
   def filter
+    @rating = [1, 2, 3, 4, 5]
     @ingredients = params[:ingredients]
     @search_type = params[:search_type]
     redirect_to :controller => "index", :action => "get", :ingredients => @ingredients, :search_type => @search_type
@@ -17,6 +19,7 @@ class CisController < ApplicationController
     puts "INGREDIENTS: #{@ingredients}"
     puts "SEARCH TYPE: #{params[:search_type]}"
     not_empty_cocktails = Cocktail.all.select { |c| c.ingredients.size > 0 }
+    
     case params[:search_type]
     when "include"
       @cocktails = not_empty_cocktails.find_all { |c| (@ingredients - c.ingredients_names).size < @ingredients.size }
