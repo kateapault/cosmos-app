@@ -1,3 +1,7 @@
+<head>
+<title><%= @ingredient.name %></title>
+</head>
+<body>
 <h1><%= @ingredient.name %></h1>
 
 Type: <%= @ingredient.category %>
@@ -6,3 +10,5 @@ Type: <%= @ingredient.category %>
 <%= link_to "Edit Ingredient", edit_ingredient_path, class:"button" %>
 <%= link_to "Delete Ingredient", ingredient_path(@ingredient), method: "delete", class:"button" %>
 <%= link_to "Back To Ingredient List", ingredients_path, class:"button" %>
+
+</body>

@@ -16,8 +16,6 @@ class CisController < ApplicationController
 
   def index
     @ingredients = params[:ingredients]
-    puts "INGREDIENTS: #{@ingredients}"
-    puts "SEARCH TYPE: #{params[:search_type]}"
     not_empty_cocktails = Cocktail.all.select { |c| c.ingredients.size > 0 }
     
     case params[:search_type]

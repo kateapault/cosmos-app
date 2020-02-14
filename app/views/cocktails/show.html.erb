@@ -1,3 +1,8 @@
+<head>
+<title><%= @cocktail.name %></title>
+</head>
+<body>
+
 <h1><%= @cocktail.name %></h1>
 <p><em>Submitted by <%=link_to @profile.name, user_path(@profile)%></em></p>
 <br>
@@ -18,12 +23,8 @@
         <td><h3><%= @cocktail.instructions %></h3></td>
     </tr>
 </table>
-Average Rating:
-<%= @cocktail.ucs.average(:rating) %>
-
-
-
-
+<p>
+<%= @cocktail.ucs.average(:rating) %></p>
 <br>
 <% if !session[:user_id].nil? %>
     <% if !(@user.id == @cocktail.user_id)%>
@@ -35,8 +36,14 @@ Average Rating:
     <% end %>
 <% end %>
 
-
+<br>
+<br>
+<br>
+<br>
 <p class="links">
 <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class:"button" %> 
 <%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: "delete", class:"button" %>
 <%= link_to "Back to Cocktail List", cocktails_path, class:"button" %></p>
+
+
+</body>

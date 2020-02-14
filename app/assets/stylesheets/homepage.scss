@@ -2,14 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+:root {
+    --galaxy-image: url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1357&q=80);
+}
+
 body {
     background-color: black;
+    align-content: center;
+    color: silver;
 }
 
 body.home {
-    background-image: url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1357&q=80);
+    background-image: var(--galaxy-image);
     background-size: 100%, 100%;
 }
+
+body.ingredients {
+    background-image: var(--galaxy-image);
+    align-content: center;
+}
+
+body.ingredients ul.list {
+    background-color: black;
+    opacity: 50%;
+}
+
+
+body.cocktails {
+    background-image: var(--galaxy-image);
+}
+
+body.cocktails ul.list {
+    background-color: black;
+    opacity: 50%;
+}
+
+body.cocktails p {
+    align-content: center;
+    font-weight: bold;
+}
+
+
 
 div.home {
     padding-top: 5%;
@@ -22,7 +55,7 @@ h1 {
     width: 100%;
     font-size: 100px;
     text-align: center;
-    background-image: url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1357&q=80);
+    background-image: var(--galaxy-image);
     color: silver;
 
 }
@@ -40,12 +73,12 @@ h2 {
 
 
 .button {
-    background-image: url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1357&q=80);
+    background-image: var(--galaxy-image);
     border-radius: 10px;
     padding: 3px;
     color: white;
     text-decoration: none;
-
+    font-weight: bold;
 }
 
 table.show {
@@ -88,28 +121,110 @@ body.form {
     align-content: center;
 }
 
+table.form {
+    width: 100%;
+}
+
+
+table.form td:first-child {
+    text-align: right;
+    padding-right: 10px;
+    width: 48%;
+}
+
+table.form td:nth-child(2) {
+    text-align: left;
+}
+
+table.form td.ing {
+    border-left: 1px solid silver;
+    padding-left: 10px;
+    padding-top: 0px;
+}
+
+input[type=text] {
+    background-color: black;
+    border: 2px solid silver;
+    border-radius: 5px;
+    color: silver;
+    padding: 5px;
+}
+input[type=number] {
+    background-color: black;
+    border: 2px solid silver;
+    border-radius: 5px;
+    color: silver;
+    padding: 5px;
+}
+
+textarea {
+    background-color: black;
+    border: 2px solid silver;
+    border-radius: 5px;
+    color: silver;
+    padding: 5px;
+}
+
+input[type=submit] {
+    background-image: var(--galaxy-image);
+    align-content: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: silver;
+    font-size: medium;
+    font-weight: bold;
+}
+
+input[type=select] {
+    background-color: black;
+    border: 2px solid silver;
+    border-radius: 5px;
+    color: silver;
+    padding: 5px; 
+}
+
+
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 ///////////// ADVANCED SEARCH FORM ///////////////////
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
+body.search {
+    background: black;
+    align-content: center;
+    font-size: medium;
+    color: silver;
+}
+
+ul.blackout {
+    color: black;
+    background-color: black;
+}
+
+p.big {
+    color: silver;
+    font-size: x-large;
+    font-weight: bold;
+}
+
 
 input[type=radio] {
     display: none;
 }
 
 input[type=radio] + label {
-    background: black;
-    color: white;
+    background:silver;
+    color:black;
     border-radius: 25px;
     padding: 10px;
 }
 
 input[type=radio]:checked + label {
-    background:url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1057&q=80);
-    color: white;
+    background-image: var(--galaxy-image);
+    color: silver;
     border-radius: 25px;
-    padding: 10px;
+    padding: 15px;
+    font-size: x-large;
 }
 
 input[type=checkbox] {
@@ -117,18 +232,19 @@ input[type=checkbox] {
 }
 
 input[type=checkbox] + label {
-    background: black;
-    color: white;
+    background: silver;
+    color: black;
     border-radius: 25px;
     padding: 5px;
 }
 
 input[type=checkbox]:checked + label {
-    background-image:url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1057&q=80);
-    color: white;
+    background-image: var(--galaxy-image);
+    color: silver;
     font-weight: bold;
     border-radius: 25px;
-    padding: 5px;
+    padding: 10px;
+    font-size: x-large;
 }
 
 table {
@@ -146,16 +262,18 @@ td {
 }
 
 a.cocktail {
-    background: lightblue;
+    background-image: var(--galaxy-image);
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
     padding: 8px;
     text-decoration: none;
-    color: royalblue;
+    color:silver;
     font-size: large;
+    font-weight: bold;
 }
 
 p {
    width: 100%;
    text-align: center; 
 }
+

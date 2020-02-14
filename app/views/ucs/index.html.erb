@@ -1,3 +1,9 @@
+<head>
+<title>Ratings</title>
+</head>
+<body>
 <% @rating.each do |rating| %>
     <%= link_to rating.cocktail.name, "/cocktails/#{rating.cocktail_id}", class:"button" %>
 <% end %>
+
+</body>

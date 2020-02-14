@@ -2,10 +2,22 @@
 <% if flash[:message]%>
     <%= flash[:message]%>
 <% end %>
-
+<table class="form">
 <%= form_for @ingredient do |f| %>
-    Name: <%= f.text_field :name %>
-    Type: <%= f.collection_select :category, @categories, :to_s, :to_s, include_blank: false %>
-    <%= f.submit %>
+    <tr>
+        <td>Name:</td>
+        <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+        <td>Type:</td>
+        <div class="select">
+        <td><%= f.collection_select :category, @categories, :to_s, :to_s, include_blank: false %></td>
+        </div>
+    </tr>
+    <tr>
+        <td colspan="2"><p><%= f.submit %></p></td>
+    </tr>
+    </table>
 <% end %>
+
 </body>

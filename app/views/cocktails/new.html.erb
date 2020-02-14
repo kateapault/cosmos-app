@@ -1,7 +1,14 @@
+<head>
+<title>Create New Cocktail</title>
+</head>
+<body>
+
 <h1>Create New Cocktail</h1>
 
 <br>
 <% if flash[:alert] %>
-    <%= flash[:alert] %>
+    <p class="alert"><%= flash[:alert] %></p>
 <% end %>
 <%= render 'form' %>
+
+</body>

@@ -1,5 +1,8 @@
 <%# <h1>Homepage#home</h1>
 <p>Find me in app/views/homepage/home.html.erb</p> %>
+<head>
+<title>Cosmos</title>
+</head>
 <body class="home">
 <div class="home">
 <h1 class="home">Cosmos</h1>
@@ -7,14 +10,14 @@
 
 <h2><%= form_tag(cocktails_path, method: "get", autocomplete: "off") do %>
   Search by Name <%= text_field_tag :name %>
-  <button type="button" class="button">Search</button>
+  <input type="submit" class="button" value="Search">
 <% end %>
 </h2>
 
 <h2>
 <%= form_tag(ucs_path, method: "get") do %>
   Search by Rating <%= select_tag :rating, options_from_collection_for_select(@rating, "to_i", "to_i") %>
-  <button type="button" class="button">Search</button>
+  <input type="submit" class="button" value="Search">
 <% end %></h2>
 </div>
 </body>

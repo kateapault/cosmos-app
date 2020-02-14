@@ -1,6 +1,24 @@
-<h1>All Ingredients</h1>
-<%= link_to "Add New Ingredient", new_ingredient_path, method: "get", class:"button" %>
+<head>
+<title>All Ingredients</title>
+</head>
+<body class="ingredients">
 
-<% @ingredients.each do |ingredient| %>
-    <div><%= link_to ingredient.name, ingredient_path(ingredient), class:"button" %></div>
-<% end %>
+<h1>All Ingredients</h1>
+<% if params[:name] %>
+    <br>
+    <ul class="list">
+    <% @cocktail.each do |cocktail| %>
+        <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+    <% end %>
+    </ul>
+<% else %>
+    <p><%= link_to "Add New Ingredient", new_ingredient_path, method: "get", class:"button" %></p>
+    <br>
+    <ul class="list">
+    <% @ingredients.each do |ingredient| %>
+        <li><%= link_to ingredient.name, ingredient_path(ingredient)%></li></div>
+    <% end %>
+    </ul>
+<%end%>
+
+</body>

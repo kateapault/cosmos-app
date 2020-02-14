@@ -1,25 +1,30 @@
 <body class="form">
 <%= form_for @cocktail do |f| %>
     <%= f.hidden_field :user_id, value:session[:user_id] %>
-    Name: <%= f.text_field :name %>
-    <br>
-    <br>
-    Instructions: <%= f.text_area :instructions %>
-    <br>
-    <br>
-    Ingredients:
-    <table class="name_amount">
+    <table class="form">
+    <tr><td>Name:</td><td><%= f.text_field :name %></td></tr>
+    <tr><td>Instructions:</td><td> <%= f.text_area :instructions %></td></tr>
+    <tr><td>Ingredients:</td><td class="ing">
     <% Ingredient.all.each do |i| %>
-        <% if ci = @cis.find { |ci| ci.ingredient_id == i.id } %>
-            <% default_val = ci.amount %>
+        <% if @cis %>
+            <% if ci = @cis.find { |ci| ci.ingredient_id == i.id } %>
+                <% default_val = ci.amount %>
+            <% else %>
+                <% default_val = nil %>
+            <% end %>
         <% else %>
             <% default_val = nil %>
         <% end %>
-
-        <tr><td><%=i.name%></td><td><%= text_field_tag 'cis[][amount]', default_val%> fl oz <%= hidden_field_tag 'cis[][ingredient_id]', i.id %></td></tr>   
+        <% if i.category == "Garnish"%>
+            <% unit = "units" %>
+        <%else %>
+            <% unit = "fl oz" %>
+        <%end%>
+        <br><br><%= number_field_tag 'cis[][amount]', default_val%> <%=unit%>  <%=i.name%><%= hidden_field_tag 'cis[][ingredient_id]', i.id %>  
     <% end %>
+    </td></tr>
+    <tr colspan="2"><td><p class="submitbutton"><br><%= f.submit  %></p></td></tr>
     </table>
-    <br>
-    <%= f.submit  %>
+    
 <% end %>
 </body>

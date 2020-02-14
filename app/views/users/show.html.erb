@@ -1,15 +1,22 @@
-<%# <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p> %>
+<head>
+<title><%=@profile.name%></title>
+</head>
+<body>
 
 <% if flash[:message] %>
     <%= flash[:message] %>
 <% end %>
 
 <h1><%= @profile.name %></h1>
-<h1><%= @profile.bio %></h1>
+<h2><%= @profile.bio %></h2>
 
+<br>
+<p>
 <% if @user == @profile%>
 <%= link_to "Edit", "/editprofile", class:"button"%>
 <%= link_to "Logout", "/logout", class:"button"%>
 <%= link_to "Delete Profile", "/delete", data: {confirm: "Are you sure you want to delete your profile FOREVER?" }, class:"button"%>
 <% end %>
+</p>
+
+</body>

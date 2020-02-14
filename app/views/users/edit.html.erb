@@ -1,4 +1,9 @@
+<head>
+<title>Edit User Info</title>
+</head>
+<body>
 <%= form_for @user do |f| %>
     Bio: <%= f.text_field :bio %><br>
     <%= f.submit "Edit User" %>
 <% end %>
+</body>

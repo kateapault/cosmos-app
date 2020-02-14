@@ -1,3 +1,7 @@
+<head>
+<title>All Cocktails</title>
+</head>
+<body class="cocktails">
 <% if params[:name] %>
     <br>
     <ul>
@@ -7,13 +11,12 @@
     </ul>
 <% else %>
     <h1>All Cocktails</h1>
-    <%= link_to "Create New Cocktail", new_cocktail_path, class:"button"%>
+    <p><%= link_to "Create New Cocktail", new_cocktail_path, class:"button"%></p>
     <br>
-    <%= form_tag %>
-    <br>
-    <ul>
+    <ul class="list">
     <% @cocktails.each do |cocktail| %>
         <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
     <% end %>
     </ul>
 <% end %>
+</body>
