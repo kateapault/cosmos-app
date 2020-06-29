@@ -1,11 +1,4 @@
 from urllib import request
-import re
-
-url = f"https://en.wikipedia.org/wiki/List_of_cocktails"
-result = request.urlopen(url)
-binary_data = result.read()
-utf8_data = binary_data.decode('utf-8')
-text = utf8_data.split('id="See_also"')[0]
 
 def hacky_get_names(text):
     names = []
@@ -45,32 +38,50 @@ def get_recipe(name):
     except:
         print("something went wrong - this page was not found")
 
-page_text = get_recipe("bourbon old fashioned")
-chunk_ingredients = page_text.split('Ingredients')[1].split("Steps")[0].split("\n")
-ingredients = []
-for chunk in chunk_ingredients:
-    if "<" not in chunk:
-        ingredients.append(chunk)
+
+def liquor_dot_com(page_text):
+    chunk_ingredients = page_text.split('Ingredients')[1].split("Steps")[0].split("\n")
+    ingredients = []
+    for chunk in chunk_ingredients:
+        if "<" not in chunk:
+            ingredients.append(chunk)
         
-steps = [] 
-chunk_steps = page_text.split("Steps")[1].split("<p>")
-for chunk in chunk_steps:
+    steps = [] 
+    chunk_steps = page_text.split("Steps")[1].split("<p>")
+    for chunk in chunk_steps:
     # print(chunk)
-    if "</p>" in chunk:
-        steps.append(chunk.split("</p>")[0])
-print("ingredients")
-print(f"{ingredients}")
-print('steps')
-print(steps)
-# cocktails = hacky_get_names(text)
-# yes = 0
-# no = 0
-# sures = []
-# nots = []
-# for cocktail in cocktails:
-#     if get_recipe(cocktail):
-#         yes += 1
-#         sures.append(cocktail)
-#     else:
-#         no += 1
-#         nots.append(cocktail)
+        if "</p>" in chunk:
+            steps.append(chunk.split("</p>")[0])
+    return ingredients, steps
+
+
+
+def get_recipe(name):
+    cocktail = name.replace(" ","-").lower()
+    url = f"https://www.liquor.com/recipes/{cocktail}/"
+    try: 
+        result = request.urlopen(url)
+        binary_data = result.read()
+        data = binary_data.decode('utf-8')
+        steps, ingredients = liquor_dot_com(data)
+        return {name: {'steps': steps, 'ingredients': ingredients}}
+    except:
+        print(f"page for {name} was not found")
+        return name
+        
+
+url = f"https://en.wikipedia.org/wiki/List_of_cocktails"
+result = request.urlopen(url)
+binary_data = result.read()
+utf8_data = binary_data.decode('utf-8')
+text = utf8_data.split('id="See_also"')[0]
+cocktails = hacky_get_names()
+
+no_recipe_yet = []
+ingredients = 
+
+for cocktail in cocktails:
+    if type(get_recipe(cocktail)) == dict:
+        
+    else:
+        no_recipe_yet.append(cocktail)
